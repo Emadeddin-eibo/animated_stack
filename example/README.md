@@ -1,4 +1,4 @@
-# Animated Stack
+# Example for Animated Stack
 
 Custom animated stacked pages, to create customisable side menu buttons.
 Providing simple menu for sharing buttons, side menu, message sending, about page, ... etc.
@@ -62,8 +62,6 @@ AnimatedStack(
     closeAnimationCurve: ...,   // Animation Curve, default is ElasticInCurve(0.9)
     );
 ```
-
-### For complete examples, check example folder
 
 ## License
 MIT License.
