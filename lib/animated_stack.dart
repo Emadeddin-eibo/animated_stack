@@ -60,7 +60,10 @@ class _AnimatedStackState extends State<AnimatedStack> {
       floatingActionButton: FloatingActionButton(
         child: RotateAnimation(
           opened: widget.animateButton ? opened : false,
-          child: Icon(widget.buttonIcon,color: widget.fabIconColor,),
+          child: Icon(
+            widget.buttonIcon,
+            color: widget.fabIconColor,
+          ),
           duration: widget.buttonAnimationDuration,
         ),
         backgroundColor: widget.fabBackgroundColor,

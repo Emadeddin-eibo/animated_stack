@@ -168,4 +168,3 @@ class _RowPlaceholder extends StatelessWidget {
     );
   }
 }
-
