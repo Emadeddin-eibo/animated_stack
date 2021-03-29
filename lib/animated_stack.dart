@@ -9,7 +9,7 @@ class AnimatedStack extends StatefulWidget {
   final Widget columnWidget;
   final Widget bottomWidget;
   final Color fabBackgroundColor;
-  final Color fabIconColor;
+  final Color? fabIconColor;
   final Color backgroundColor;
   final Duration buttonAnimationDuration;
   final Duration slideAnimationDuration;
@@ -19,14 +19,14 @@ class AnimatedStack extends StatefulWidget {
   final bool animateButton;
 
   const AnimatedStack({
-    Key key,
+    Key? key,
     this.scaleWidth = 60,
     this.scaleHeight = 60,
-    this.fabBackgroundColor,
-    this.backgroundColor,
-    @required this.columnWidget,
-    @required this.bottomWidget,
-    @required this.foregroundWidget,
+    required this.fabBackgroundColor,
+    required this.backgroundColor,
+    required this.columnWidget,
+    required this.bottomWidget,
+    required this.foregroundWidget,
     this.slideAnimationDuration = const Duration(milliseconds: 800),
     this.buttonAnimationDuration = const Duration(milliseconds: 240),
     this.openAnimationCurve = const ElasticOutCurve(0.9),
@@ -121,12 +121,12 @@ class SlideAnimation extends StatefulWidget {
   final Curve closeAnimationCurve;
 
   const SlideAnimation({
-    Key key,
-    this.child,
+    Key? key,
+    required this.child,
     this.opened = false,
-    this.xScale,
-    this.yScale,
-    this.duration,
+    required this.xScale,
+    required this.yScale,
+    required this.duration,
     this.openAnimationCurve = const ElasticOutCurve(0.9),
     this.closeAnimationCurve = const ElasticInCurve(0.9),
   }) : super(key: key);
@@ -137,8 +137,8 @@ class SlideAnimation extends StatefulWidget {
 
 class _SlideState extends State<SlideAnimation>
     with SingleTickerProviderStateMixin {
-  AnimationController _animationController;
-  Animation<Offset> offset;
+  late AnimationController _animationController;
+  late Animation<Offset> offset;
 
   @override
   void initState() {
@@ -199,10 +199,10 @@ class RotateAnimation extends StatefulWidget {
   final Duration duration;
 
   const RotateAnimation({
-    Key key,
-    this.child,
+    Key? key,
+    required this.child,
     this.opened = false,
-    this.duration,
+    required this.duration,
   }) : super(key: key);
 
   @override
@@ -211,8 +211,8 @@ class RotateAnimation extends StatefulWidget {
 
 class _RotateState extends State<RotateAnimation>
     with SingleTickerProviderStateMixin {
-  AnimationController _animationController;
-  Animation<double> rotate;
+  late AnimationController _animationController;
+  late Animation<double> rotate;
 
   @override
   void initState() {
