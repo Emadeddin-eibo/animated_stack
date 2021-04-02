@@ -76,7 +76,7 @@ class _AnimatedStackState extends State<AnimatedStack> {
             child: Stack(
               children: <Widget>[
                 Positioned(
-                  bottom: _fabSize + _fabPosition * 2,
+                  bottom: _fabSize + _fabPosition * 4,
                   right: _fabPosition,
                   // width is used as max width to prevent overlap
                   child: ConstrainedBox(
