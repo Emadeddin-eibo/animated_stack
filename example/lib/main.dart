@@ -77,7 +77,11 @@ class _IconTile extends StatelessWidget {
   final double height;
   final IconData iconData;
 
-  const _IconTile({Key key, this.width, this.height, this.iconData})
+  const _IconTile(
+      {Key? key,
+      required this.width,
+      required this.height,
+      required this.iconData})
       : super(key: key);
 
   @override
@@ -153,7 +157,7 @@ class _ItemPlaceholder extends StatelessWidget {
 class _RowPlaceholder extends StatelessWidget {
   final int color;
 
-  const _RowPlaceholder({Key key, this.color}) : super(key: key);
+  const _RowPlaceholder({Key? key, required this.color}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
