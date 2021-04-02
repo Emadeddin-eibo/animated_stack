@@ -111,6 +111,10 @@ class _AnimatedStackState extends State<AnimatedStack> {
   }
 }
 
+/// [opened] is a flag for forwarding or reversing the animation.
+/// you can change the animation curves as you like, but you might need to
+/// pay a close attention to [xScale] and [yScale], as they're setting
+/// the end values of the animation tween.
 class SlideAnimation extends StatefulWidget {
   final Widget child;
   final bool opened;
@@ -193,6 +197,8 @@ class _SlideState extends State<SlideAnimation>
   }
 }
 
+/// Used to rotate the [FAB], it will not be called when [animateButton] is false
+/// [opened] is a flag for forwarding or reversing the animation.
 class RotateAnimation extends StatefulWidget {
   final Widget child;
   final bool opened;
