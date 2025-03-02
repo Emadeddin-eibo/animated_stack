@@ -36,31 +36,34 @@ class MyApp extends StatelessWidget {
 
 Here's all what you can customize in this widget!
 
-## Button attributes
+## Stack attributes
 
 ```dart
 AnimatedStack(
-    backgroundColor: ...,     // Background Container color
-    foregroundWidget: ...,    // Foreground Container color
+backgroundColor: ...,     // Background Container color
+foregroundWidget: ...,    // Foreground Container color
 
-    columnWidget: ...,        // Right Widget, (use Column for best results)
-    bottomWidget: ...,        // Bottom Widget, (use Row for best results)
+columnWidget: ...,        // Right Widget, (use Column for best results)
+bottomWidget: ...,        // Bottom Widget, (use Row for best results)
 
-    scaleHeight: 100,         // Sliding animation height, default is 60
-    scaleWidth: 100,          // Sliding animation width, default is 60
+scaleHeight: 100,         // Sliding animation height, default is 60
+scaleWidth: 100,          // Sliding animation width, default is 60
 
 
-    buttonIcon: ...,          // FAB icon (IconData)
-    fabIconColor: ...,        // FAB icon color
-    animateButton: false,     // Sometimes, we don't want to animate the button!
-    fabBackgroundColor: ...,  // FAB background color
+buttonIcon: ...,          // FAB icon (IconData)
+fabIconColor: ...,        // FAB icon color
+animateButton: false,     // Sometimes, we don't want to animate the button!
+fabBackgroundColor: ...,  // FAB background color
 
-    slideAnimationDuration: ..., // Animation Duration, default is 800 Milliseconds
-    buttonAnimationDuration: ...,// Animation Duration, default is 240 Milliseconds
+slideAnimationDuration: ..., // Animation Duration, default is 800 Milliseconds
+buttonAnimationDuration: ...,// Animation Duration, default is 240 Milliseconds
 
-    openAnimationCurve: ...,    // Animation Curve, default is ElasticOutCurve(0.9)
-    closeAnimationCurve: ...,   // Animation Curve, default is ElasticInCurve(0.9)
-    );
+openAnimationCurve: ...,    // Animation Curve, default is ElasticOutCurve(0.9)
+closeAnimationCurve: ...,   // Animation Curve, default is ElasticInCurve(0.9)
+enableClickToDismiss: true, // Enable Click on Main Widget to close
+preventForegroundInteractions: true, // Prevent Clicks on Main Widget
+onForegroundCallback: () => print('on Close Callback'), // On Close Callback
+);
 ```
 
 ### For complete examples, check example folder

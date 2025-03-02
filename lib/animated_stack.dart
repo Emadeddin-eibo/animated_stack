@@ -17,24 +17,32 @@ class AnimatedStack extends StatefulWidget {
   final Curve closeAnimationCurve;
   final IconData buttonIcon;
   final bool animateButton;
+  final bool enableClickToDismiss;
+  final bool preventForegroundInteractions;
+  final Function()? onForegroundCallback;
 
   const AnimatedStack({
     Key? key,
     this.scaleWidth = 60,
     this.scaleHeight = 60,
-    required this.fabBackgroundColor,
-    required this.backgroundColor,
     required this.columnWidget,
     required this.bottomWidget,
+    required this.backgroundColor,
     required this.foregroundWidget,
-    this.slideAnimationDuration = const Duration(milliseconds: 800),
-    this.buttonAnimationDuration = const Duration(milliseconds: 240),
-    this.openAnimationCurve = const ElasticOutCurve(0.9),
-    this.closeAnimationCurve = const ElasticInCurve(0.9),
-    this.buttonIcon = Icons.add,
-    this.animateButton = true,
+    required this.fabBackgroundColor,
     this.fabIconColor,
-  })  : assert(scaleHeight >= 40),
+    this.onForegroundCallback,
+    this.animateButton = true,
+    this.buttonIcon = Icons.add,
+    this.enableClickToDismiss = true,
+    this.preventForegroundInteractions = false,
+    this.closeAnimationCurve = const ElasticInCurve(0.9),
+    this.openAnimationCurve = const ElasticOutCurve(0.9),
+    this.buttonAnimationDuration = const Duration(milliseconds: 240),
+    this.slideAnimationDuration = const Duration(milliseconds: 800),
+  })  : assert(scaleHeight >= 40, 'scaleHeight must be at least 40'),
+        assert(!(enableClickToDismiss && !preventForegroundInteractions),
+            'enableClickToDismiss can only be true if preventForegroundInteractions is also true'),
         super(key: key);
 
   @override
@@ -67,7 +75,12 @@ class _AnimatedStackState extends State<AnimatedStack> {
           duration: widget.buttonAnimationDuration,
         ),
         backgroundColor: widget.fabBackgroundColor,
-        onPressed: () => setState(() => opened = !opened),
+        onPressed: () {
+          setState(() => opened = !opened);
+          if (!opened) {
+            widget.onForegroundCallback?.call();
+          }
+        },
       ),
       body: Stack(
         children: <Widget>[
@@ -103,7 +116,19 @@ class _AnimatedStackState extends State<AnimatedStack> {
             xScale: _xScale,
             yScale: _yScale,
             duration: widget.slideAnimationDuration,
-            child: widget.foregroundWidget,
+            child: GestureDetector(
+              behavior: HitTestBehavior.translucent,
+              onTap: () {
+                if (widget.enableClickToDismiss && opened) {
+                  setState(() => opened = false);
+                  widget.onForegroundCallback?.call();
+                }
+              },
+              child: IgnorePointer(
+                ignoring: widget.preventForegroundInteractions && opened,
+                child: widget.foregroundWidget,
+              ),
+            ),
           ),
         ],
       ),
