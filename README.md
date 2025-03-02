@@ -3,7 +3,7 @@
 Custom animated stacked pages, to create customisable side menu buttons.
 Providing simple menu for sharing buttons, side menu, message sending, about page, ... etc.
 
-![](assets/example1.gif)  &nbsp; &nbsp; ![](assets/example2.gif)
+![](https://raw.githubusercontent.com/Emadeddin-eibo/animated_stack/master/example1.gif)  &nbsp; &nbsp; ![](https://raw.githubusercontent.com/Emadeddin-eibo/animated_stack/master/example2.gif)
 
 ## Getting Started
 At first, you have to create Foreground and Background Widgets.
