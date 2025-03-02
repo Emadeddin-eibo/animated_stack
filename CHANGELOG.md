@@ -1,3 +1,6 @@
+## [0.3.2] - 2/3/2025
+Fixing Example GIFs
+
 ## [0.3.0] - 2/3/2025
 * Updating minSDK to `sdk: ^3.5.0`
 * Adding more controls on Stack

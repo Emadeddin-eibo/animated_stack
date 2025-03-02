@@ -1,6 +1,6 @@
 name: animated_stack
 description: Custom animated stacked pages, to create customisable side menu buttons.
-version: 0.3.0
+version: 0.3.2
 homepage: https://github.com/Emadeddin-eibo/animated_stack
 
 environment:
@@ -19,6 +19,9 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
+  assets:
+    - assets/example1.gif
+    - assets/example2.gif
 
   # To add assets to your package, add an assets section, like this:
   # assets:
